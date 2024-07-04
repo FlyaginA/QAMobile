@@ -6,21 +6,6 @@ namespace ATframework3demo.PageObjects.Mobile
 {
     public class MobileTasksListPage
     {
-        public MobileTasksListPage CreateTask(Bitrix24Task task)
-        {
-            var createNewTaskBtn = new MobileItem("//android.view.ViewGroup[@content-desc=\"task-list_ADD_BTN\"]",
-                "Кнопка добавления новой задачи");
-            createNewTaskBtn.Click();
-
-            var taskNameField = new MobileItem("//android.view.ViewGroup[@content-desc=\"title_FIELD\"]//android.widget.EditText",
-                "Поле названия задачи");
-            var createBtn = new MobileItem("//android.view.ViewGroup[@content-desc=\"taskCreateToolbar_createButton\"]",
-                "Кнопка подтверждения создания задачи");
-            taskNameField.SendKeys(task.Title);
-            createBtn.Click();
-
-            return this;
-        }
 
         public bool IsTaskPresent(Bitrix24Task task)
         {
@@ -30,6 +15,13 @@ namespace ATframework3demo.PageObjects.Mobile
             bool isTaskPresent = Waiters.WaitForCondition(() => taskTitle.WaitElementDisplayed(), 2, 6,
                 $"Ожидание появления задачи '{task.Title}' в списке задач");
             return isTaskPresent;
+        }
+
+        public MobileProjectListPage SelectProject()
+        {
+            var ProjectSelector = new MobileItem("//android.widget.TextView[@resource-id=\"com.bitrix24.android:id/title\" and @text=\"Проекты\"]","Селектор 'Проекты' в верхней карусели страницы");
+            ProjectSelector.Click();
+            return new MobileProjectListPage();
         }
     }
 }

@@ -9,11 +9,17 @@ namespace ATframework3demo.PageObjects.Mobile
     {
         public MobileTasksListPage SelectTasks()
         {
-            var tasksTab = new MobileItem("//android.widget.TextView[@resource-id=\"com.bitrix24.android:id/bb_bottom_bar_title\" and @text=\"Tasks\"]",
+            var tasksTab = new MobileItem("//android.widget.TextView[@text=\"Задачи\"]", 
                 "Таб 'Задачи'");
             tasksTab.Click();
 
             return new MobileTasksListPage();
         }
+
+        public MobileCreateTaskPage ClickAddButton()
+        {
+            return new MobileCreateTaskPage(); 
+        }
+
     }
 }

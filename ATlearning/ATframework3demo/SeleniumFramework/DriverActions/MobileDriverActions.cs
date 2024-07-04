@@ -16,8 +16,8 @@ namespace atFrameWork2.SeleniumFramework
             var appiumOptions = new AppiumOptions();
             appiumOptions.PlatformName = "Android";
             appiumOptions.AutomationName = "UiAutomator2"; // Драйвер для автоматизации
-            appiumOptions.App = "/path/to/your/bitrix24_stable.apk"; // Путь к приложению
-            appiumOptions.AddAdditionalAppiumOption(MobileCapabilityType.Udid, "emulator-5554"); // Уникальный идентификатор устройства
+            appiumOptions.App = "E:\\downloads\\bitrix24_university.apk"; // Путь к приложению
+            //appiumOptions.AddAdditionalAppiumOption(MobileCapabilityType.Udid, "emulator-5554"); // Уникальный идентификатор устройства
             appiumOptions.AddAdditionalAppiumOption(MobileCapabilityType.NoReset, false); // Не сбрасывать состояние приложения
             appiumOptions.AddAdditionalAppiumOption(MobileCapabilityType.FullReset, false); // Выполнить полный сброс состояния
             appiumOptions.AddAdditionalAppiumOption(MobileCapabilityType.NewCommandTimeout, 60); // Таймаут для новой команды
