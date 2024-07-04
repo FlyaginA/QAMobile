@@ -14,8 +14,8 @@ namespace ATframework3demo.PageObjects.Mobile
         /// <returns></returns>
         public MobileProjectListPage ClickCreateButton()
         {
-            var CreateButton = new MobileItem("//android.widget.TextView[@text=\"Создать\"]", "кнопка 'Создать'");
-            CreateButton.Click();
+            var сreateButton = new MobileItem("//android.widget.TextView[@text=\"Создать\"]", "кнопка 'Создать'");
+            сreateButton.Click();
             return new MobileProjectListPage();
         }
     }

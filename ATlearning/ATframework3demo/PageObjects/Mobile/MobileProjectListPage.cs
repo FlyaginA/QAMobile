@@ -31,8 +31,8 @@ namespace ATframework3demo.PageObjects.Mobile
         /// <returns></returns>
         internal bool IsProjectPresent(Bitrix24Project testProject)
         {
-            var ProjectTitle = new MobileItem($"//android.widget.TextView[@resource-id=\"com.bitrix24.android:id/title\" and @text=\"{testProject.Title}\"]", "заголовок с названием проекта");
-            bool isProjectPresent = Waiters.WaitForCondition(() => ProjectTitle.WaitElementDisplayed(), 2, 6,
+            var projectTitle = new MobileItem($"//android.widget.TextView[@resource-id=\"com.bitrix24.android:id/title\" and @text=\"{testProject.Title}\"]", "заголовок с названием проекта");
+            bool isProjectPresent = Waiters.WaitForCondition(() => projectTitle.WaitElementDisplayed(), 2, 6,
                 $"Ожидание появления задачи '{testProject.Title}' в списке задач");
             return isProjectPresent;
         }

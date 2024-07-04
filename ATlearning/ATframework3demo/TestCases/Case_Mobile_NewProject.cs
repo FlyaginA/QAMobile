@@ -20,13 +20,13 @@ namespace ATframework3demo.TestCases
 
 
 
-        void CreateProject(MobileHomePage HomePage)
+        void CreateProject(MobileHomePage homePage)
         {
-            string ProjectName = "testTasks" + DateTime.Now.Ticks;
-            var testProject = new Bitrix24Project(ProjectName);
+            string projectName = "testTasks" + DateTime.Now.Ticks.ToString();
+            var testProject = new Bitrix24Project(projectName);
 
 
-            bool isProjectPresent = HomePage
+            bool isProjectPresent = homePage
                 .TabsPanel
                 //кликаем в "Задачи"
                 .SelectTasks()  
@@ -35,7 +35,7 @@ namespace ATframework3demo.TestCases
                 //нажимаем на кнопку "добавить"
                 .ClickAddButton()
                 //вводим название проекта
-                .EnterTitleProject(ProjectName)
+                .EnterTitleProject(testProject)
                 //нажимаем "далее"
                 .ClickContinueButton()
                 //нажимаем "создать"
@@ -46,7 +46,11 @@ namespace ATframework3demo.TestCases
 
             if (!isProjectPresent)
             {
-                Log.Error($"Созданный проект с названием {ProjectName} не отображается");
+                Log.Error($"Созданный проект с названием {testProject.Title} не отображается");
+            }
+            else
+            {
+                Log.Info($"Созданный проект с названием {testProject.Title} отображается");
             }
         }
     }

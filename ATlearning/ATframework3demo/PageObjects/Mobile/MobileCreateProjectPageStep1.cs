@@ -1,5 +1,6 @@
 ﻿
 using atFrameWork2.SeleniumFramework;
+using ATframework3demo.TestEntities;
 
 namespace ATframework3demo.PageObjects.Mobile
 {
@@ -13,10 +14,10 @@ namespace ATframework3demo.PageObjects.Mobile
         /// </summary>
         /// <param name="Name"></param>
         /// <returns></returns>
-        public MobileCreateProjectPageStep1 EnterTitleProject(string Name)
+        public MobileCreateProjectPageStep1 EnterTitleProject(Bitrix24Project entity)
         {
-            var TitleField = new MobileItem("//android.widget.EditText[@text=\"Заполнить\"]", "поле с именем проекта");
-            TitleField.SendKeys(Name);
+            var titleField = new MobileItem("//android.widget.EditText[@text=\"Заполнить\"]", "поле с именем проекта");
+            titleField.SendKeys(entity.Title);
             return this;
         }
         /// <summary>
@@ -26,8 +27,8 @@ namespace ATframework3demo.PageObjects.Mobile
         public MobileCreateProjectPageStep2 ClickContinueButton()
         {
 
-            var ContinueButton = new MobileItem("//android.widget.TextView[@text=\"Далее\"]","кнопка 'далее'");
-            ContinueButton.Click();
+            var continueButton = new MobileItem("//android.widget.TextView[@text=\"Далее\"]","кнопка 'далее'");
+            continueButton.Click();
             return new MobileCreateProjectPageStep2();
         }
     }

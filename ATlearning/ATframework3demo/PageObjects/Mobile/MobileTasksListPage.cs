@@ -16,8 +16,8 @@ namespace ATframework3demo.PageObjects.Mobile
         /// <returns></returns>
         public MobileProjectListPage SelectProject()
         {
-            var ProjectSelector = new MobileItem("//android.widget.TextView[@resource-id=\"com.bitrix24.android:id/title\" and @text=\"Проекты\"]","Селектор 'Проекты' в верхней карусели страницы");
-            ProjectSelector.Click();
+            var projectSelector = new MobileItem("//android.widget.TextView[@resource-id=\"com.bitrix24.android:id/title\" and @text=\"Проекты\"]","Селектор 'Проекты' в верхней карусели страницы");
+            projectSelector.Click();
             return new MobileProjectListPage();
         }
     }
